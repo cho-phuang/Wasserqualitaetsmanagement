@@ -28,4 +28,9 @@ Das System ermöglicht es dem Benutzer, sich abzumelden (Logout), wodurch das Lo
 
 Aufwand: 6 Stunden
 
-Gesamtaufwand: 42 Stunden
+6. Angabe von Namen und Standort des Schwimmbades
+Anforderung:
+Das System ermöglicht es dem Benutzer, die Angaben seines Schwimmbades. Diese werden im MainWindow angezeigt
+
+Aufwand: 3 Stunden
+Gesamtaufwand: 45 Stunden
