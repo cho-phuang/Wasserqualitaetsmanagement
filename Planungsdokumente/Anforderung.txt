@@ -1,0 +1,31 @@
+1. Benutzeranmeldung mit Benutzername und Passwort
+Anforderung:
+Das System ermöglicht eine Anmeldung mit einem Benutzernamen und einem Passwort. Nur bei korrekter Eingabe wird der Benutzer zur Hauptanwendung (MainWindow) weitergeleitet.
+(Zurzeit nur ein Benutzer angelegt)
+Aufwand: 8 Stunden
+
+2. Anzeige der Wasserqualitätswerte und Warnmeldungen
+Anforderung:
+Das System nimmt Eingabewerte für die Wasserqualität (pH-Wert, Temperatur, Chlorlevel, Trübung) entgegen, vergleicht diese mit den empfohlenen Standardwerten und zeigt gegebenenfalls Warnmeldungen und Verbesserungsvorschläge an.
+
+Aufwand: 12 Stunden
+
+3. Anzeige von Verbesserungsvorschlägen bei Abweichungen
+Anforderung:
+Wenn die eingegebenen Wasserwerte außerhalb des empfohlenen Bereichs liegen, zeigt das System konkrete Vorschläge zur Korrektur der Werte, z.B. das Erhöhen des pH-Wertes oder das Senken der Wassertemperatur, um die Wasserqualität zu optimieren.
+
+Aufwand: 10 Stunden
+
+4. Warnung bei ungültigen Eingabewerten
+Anforderung:
+Das System prüft die Gültigkeit der eingegebenen Werte (ob sie Zahlen sind und im zulässigen Bereich liegen). Bei ungültigen Eingaben wird der Benutzer durch eine Fehlermeldung darauf hingewiesen, um sicherzustellen, dass nur valide Daten verarbeitet werden.
+
+Aufwand: 6 Stunden
+
+5. Möglichkeit zum Logout und Zurückkehren zur Anmeldung
+Anforderung:
+Das System ermöglicht es dem Benutzer, sich abzumelden (Logout), wodurch das Login-Fenster erneut angezeigt wird und das Hauptfenster geschlossen wird.
+
+Aufwand: 6 Stunden
+
+Gesamtaufwand: 42 Stunden
