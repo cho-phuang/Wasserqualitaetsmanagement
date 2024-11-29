@@ -1,10 +1,18 @@
 # Wasserqualitaetsmanagement
  
-Chonnaphat Phuangsamphao
+Wasserqualitätsmanagement 🌊💧
 
-Ein kleines WPF-Programm, das die Daten von einem Schwimmbad liest und Warnungen plus Vorschläge ausgibt.
-Mit einem Login und Logout. Man kann den PH-Wert,die Temperatur,das Chlorlevel und die Trübung eingeben.
-Dazu kann man sein Schwimmbad und den Standort des Schwimmbades angeben.
-Zurzeit ist nur der Admin angelegt.
-Der Benutzername: admin
-Passwort: 1234
+Projektübersicht:
+Ein einfaches WPF-Programm zur Überwachung der Wasserqualität in Schwimmbädern. Es erfasst pH-Wert, Temperatur, Chlorlevel und Trübung und gibt Warnungen sowie Verbesserungsvorschläge aus. 🚨💡
+
+Features:
+
+Login/Logout (Admin: admin, Passwort: 1234) 🔑
+Eingabe von Wasserparametern: pH, Temperatur, Chlor & Trübung 🧪
+Schwimmbad & Standort verwalten 🏊‍♂️📍
+Warnungen & Vorschläge bei kritischen Werten ⚠️✅
+Ziel:
+Optimale Wasserqualität im Schwimmbad sicherstellen! 💦
+
+Kontakt:
+Entwickler: Chonnaphat Phuangsamphao 📩
