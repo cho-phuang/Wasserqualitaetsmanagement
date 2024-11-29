@@ -19,16 +19,8 @@ namespace Projekt_Schuler
     /// Interaction logic for MainWindow.xaml
     /// </summary>
 
-    public class WaterQuality
-    {
-        public double PHValue { get; set; }
-        public double Temperature { get; set; }
-        public double ChlorineLevel { get; set; }
-        public double Turbidity { get; set; } // Trübung
-    }
     public partial class MainWindow : Window
     {
-        // Standardwerte für ein Schwimmbad
         private const double StandardPHMin = 7.2;
         private const double StandardPHMax = 7.8;
         private const double StandardTempMin = 24.0;
@@ -37,19 +29,24 @@ namespace Projekt_Schuler
         private const double StandardChlorMax = 3.0;
         private const double StandardTurbidityMax = 0.5;
 
-        public MainWindow()
+        // Neuer Konstruktor, um den Schwimmbadnamen zu erhalten
+        public MainWindow(string poolName,string poolLocation)
         {
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
+
+            // Schwimmbadname in der Anzeige setzen
+            poolNameDisplay.Text = poolName;
+            poolLocationDisplay.Text = poolLocation;
         }
+
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-           
-            
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Close();
         }
+
         private void DisplayDataButton_Click(object sender, RoutedEventArgs e)
         {
             // Versuchen, die Eingabewerte zu lesen und in die entsprechenden Variablen zu konvertieren
@@ -70,6 +67,9 @@ namespace Projekt_Schuler
                 temperatureDisplay.Text = temperature.ToString("F1");
                 chlorineDisplay.Text = chlorineLevel.ToString("F1");
                 turbidityDisplay.Text = turbidity.ToString("F1");
+
+                // Schwimmbadname anzeigen (wurde im Konstruktor bereits gesetzt)
+                // poolNameDisplay.Text = poolName;   (Nicht nötig, da es bereits oben gesetzt wurde)
 
                 // Vergleich der Werte mit den Standardwerten
                 bool hasWarnings = false;
@@ -131,6 +131,7 @@ namespace Projekt_Schuler
                 MessageBox.Show("Bitte geben Sie gültige Zahlen für alle Werte ein.", "Ungültige Eingabe", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
     }
+
+
 }

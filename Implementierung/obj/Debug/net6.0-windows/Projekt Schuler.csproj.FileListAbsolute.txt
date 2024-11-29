@@ -1,0 +1,29 @@
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\Projekt Schuler.exe
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\Projekt Schuler.deps.json
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\Projekt Schuler.runtimeconfig.json
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\Projekt Schuler.dll
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\Projekt Schuler.pdb
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.csproj.AssemblyReference.cache
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\MainWindow.g.cs
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\App.g.cs
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler_MarkupCompile.cache
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler_MarkupCompile.lref
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\MainWindow.baml
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.g.resources
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.GeneratedMSBuildEditorConfig.editorconfig
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.AssemblyInfoInputs.cache
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.AssemblyInfo.cs
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.csproj.CoreCompileInputs.cache
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.dll
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\refint\Projekt Schuler.dll
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.pdb
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.genruntimeconfig.cache
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\ref\Projekt Schuler.dll
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Login.g.cs
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Login.baml
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\OpenAI.dll
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\System.ClientModel.dll
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\System.Diagnostics.DiagnosticSource.dll
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\System.Memory.Data.dll
+H:\Projekt Schuler\Projekt Schuler\bin\Debug\net6.0-windows\System.Text.Json.dll
+H:\Projekt Schuler\Projekt Schuler\obj\Debug\net6.0-windows\Projekt Schuler.csproj.CopyComplete

@@ -17,33 +17,59 @@ namespace Projekt_Schuler
     /// <summary>
     /// Interaktionslogik für Login.xaml
     /// </summary>
-    public partial class Login : Window
+  public partial class Login : Window
+{
+    public Login()
     {
-        public Login()
+        InitializeComponent();
+        this.WindowState = WindowState.Maximized;
+    }
+
+    private void LoginButton_Click(object sender, RoutedEventArgs e)
+    {
+        string username = usernameTextBox.Text;
+        string password = passwordBox.Password;
+
+        if (username == "admin" && password == "1234")
         {
-            InitializeComponent();
-            this.WindowState = WindowState.Maximized;
+            // Schwimmbadname und Standort holen
+            string poolName = poolNameTextBox.Text;
+            string poolLocation = poolLocationTextBox.Text;
+
+            if (string.IsNullOrEmpty(poolName) || string.IsNullOrEmpty(poolLocation))
+            {
+                MessageBox.Show("Bitte geben Sie sowohl den Schwimmbadnamen als auch den Standort ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // Übergabe des Schwimmbadnamens und Standorts an MainWindow
+            MainWindow mainWindow = new MainWindow(poolName, poolLocation);
+            mainWindow.Show();
+            this.Close();
         }
-
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        else
         {
-            // Beispiel: Benutzername = "admin", Passwort = "1234"
-            string username = usernameTextBox.Text;
-            string password = passwordBox.Password;
-
-            // Prüfen, ob der Benutzername und das Passwort korrekt sind
-            if (username == "admin" && password == "1234")
-            {
-                // Bei erfolgreichem Login MainWindow öffnen und LoginWindow schließen
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
-            }
-            else
-            {
-                // Fehlermeldung anzeigen, wenn Login fehlschlägt
-                loginErrorText.Text = "Ungültiger Benutzername oder Passwort!";
-            }
+            loginErrorText.Text = "Ungültiger Benutzername oder Passwort!";
         }
     }
+
+    //private void AddPoolButton_Click(object sender, RoutedEventArgs e)
+    //{
+    //    string poolName = poolNameTextBox.Text;
+    //    string poolLocation = poolLocationTextBox.Text;
+
+    //    if (string.IsNullOrEmpty(poolName) || string.IsNullOrEmpty(poolLocation))
+    //    {
+    //        MessageBox.Show("Bitte geben Sie sowohl den Schwimmbadnamen als auch den Standort ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+    //    }
+    //    else
+    //    {
+    //        MessageBox.Show($"Schwimmbad '{poolName}' in '{poolLocation}' wurde erfolgreich hinzugefügt!", "Erfolg", MessageBoxButton.OK, MessageBoxImage.Information);
+    //        poolNameTextBox.Clear();
+    //        poolLocationTextBox.Clear();
+    //    }
+    //}
+}
+
+
 }
