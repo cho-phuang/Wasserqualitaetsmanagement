@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace Projekt_Schuler
 {
@@ -21,6 +22,9 @@ namespace Projekt_Schuler
 
     public partial class MainWindow : Window
     {
+        private string connectionString = "Server=DESKTOP-JJAKV1E;Database=master;Trusted_Connection=True;";
+
+
         private const double StandardPHMin = 7.2;
         private const double StandardPHMax = 7.8;
         private const double StandardTempMin = 24.0;
@@ -32,13 +36,19 @@ namespace Projekt_Schuler
         // Neuer Konstruktor, um den Schwimmbadnamen zu erhalten
         public MainWindow(string poolName,string poolLocation)
         {
+           
             InitializeComponent();
             this.WindowState = WindowState.Maximized;
 
             // Schwimmbadname in der Anzeige setzen
             poolNameDisplay.Text = poolName;
             poolLocationDisplay.Text = poolLocation;
+            // Initialisierung der Datenbank beim Start der Anwendung
+           
         }
+
+       
+
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
