@@ -45,12 +45,12 @@ namespace Projekt_Schuler
                     .WithMany(p => p.Pools)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("fk_pools_user");
+                    .HasConstraintName("FK__Pools__UserID__3A81B327");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasIndex(e => e.Username, "UQ__Users__536C85E4B04CA290")
+                entity.HasIndex(e => e.Username, "UQ__Users__536C85E4634EE794")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("UserID");
@@ -65,7 +65,7 @@ namespace Projekt_Schuler
             modelBuilder.Entity<WaterQualityDatum>(entity =>
             {
                 entity.HasKey(e => e.DataId)
-                    .HasName("PK__WaterQua__9D05305D300E4E94");
+                    .HasName("PK__WaterQua__9D05305DFB9B1691");
 
                 entity.Property(e => e.DataId).HasColumnName("DataID");
 
@@ -87,11 +87,16 @@ namespace Projekt_Schuler
 
                 entity.Property(e => e.UserId).HasColumnName("UserID");
 
+                entity.HasOne(d => d.Pool)
+                    .WithMany(p => p.WaterQualityData)
+                    .HasForeignKey(d => d.PoolId)
+                    .HasConstraintName("FK__WaterQual__PoolI__4D94879B");
+
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.WaterQualityData)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("fk_quality_user");
+                    .HasConstraintName("FK__WaterQual__UserI__4CA06362");
             });
 
             OnModelCreatingPartial(modelBuilder);

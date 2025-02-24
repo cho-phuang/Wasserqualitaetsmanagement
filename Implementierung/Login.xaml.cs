@@ -21,11 +21,19 @@ namespace Projekt_Schuler
   public partial class Login : Window
 {
         private string connectionString = "Server=DESKTOP-JJAKV1E;Database=master;Trusted_Connection=True;";
+     
+
+        private static bool databaseInitialized = false; // Prüft, ob die DB schon initialisiert wurde
+
         public Login()
-    {
-            InitializeDatabase();
+        {
+            if (!databaseInitialized)
+            {
+                InitializeDatabase();
+                databaseInitialized = true; // Setzt die Variable auf "true", damit es nicht erneut passiert
+            }
             InitializeComponent();
-        this.WindowState = WindowState.Maximized;
+            this.WindowState = WindowState.Maximized;
     }
         private void InitializeDatabase()
         {
@@ -140,35 +148,43 @@ namespace Projekt_Schuler
 
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
-    {
-        string username = usernameTextBox.Text;
-        string password = passwordBox.Password;
-
-        if (username == "admin" && password == "1234")
         {
-            // Schwimmbadname und Standort holen
-            string poolName = poolNameTextBox.Text;
-            string poolLocation = poolLocationTextBox.Text;
+            string username = usernameTextBox.Text;
+            string password = passwordBox.Password; // In einer echten Anwendung sollte hier eine Hash-Überprüfung erfolgen
 
-            if (string.IsNullOrEmpty(poolName) || string.IsNullOrEmpty(poolLocation))
+            using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-JJAKV1E;Initial Catalog=wasser;Integrated Security=SSPI"))
             {
-                MessageBox.Show("Bitte geben Sie sowohl den Schwimmbadnamen als auch den Standort ein.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                conn.Open();
+                string query = "SELECT UserID FROM Users WHERE Username = @username AND Password = @password";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@password", password); // In einer echten Anwendung: Gehashtes Passwort überprüfen
+
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        int userId = Convert.ToInt32(result);
+                        MessageBox.Show("Login erfolgreich! Benutzer-ID: " + userId);
+
+                        // Hier kannst du z. B. zur nächsten Seite der Anwendung navigieren
+                        MainWindow mainWindow = new MainWindow(userId);
+                        mainWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        loginErrorText.Text = "Falscher Benutzername oder Passwort.";
+                    }
+                }
             }
+        }
 
-            // Übergabe des Schwimmbadnamens und Standorts an MainWindow
-            MainWindow mainWindow = new MainWindow(poolName, poolLocation);
-            mainWindow.Show();
-            this.Close();
-        }
-        else
-        {
-            loginErrorText.Text = "Ungültiger Benutzername oder Passwort!";
-        }
+
+
+
     }
-
-  
-}
 
 
 }

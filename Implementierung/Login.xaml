@@ -36,14 +36,7 @@
                 <!-- Fehlernachricht -->
                 <TextBlock x:Name="loginErrorText" Foreground="Red" FontSize="14" HorizontalAlignment="Center"/>
 
-                <!-- Neue Felder für Schwimmbad -->
-                <TextBlock Text="Schwimmbadname" FontSize="14" Foreground="#666" Margin="20,10"/>
-                <TextBox x:Name="poolNameTextBox" Width="280" Height="35" FontSize="16" Margin="0,5" Background="White" BorderBrush="#2D8CFF" BorderThickness="1"/>
-
-                <TextBlock Text="Standort" FontSize="14" Foreground="#666" Margin="20,10"/>
-                <TextBox x:Name="poolLocationTextBox" Width="280" Height="35" FontSize="16" Margin="0,5" Background="White" BorderBrush="#2D8CFF" BorderThickness="1"/>
-
-            
+          
             </StackPanel>
         </Border>
     </Grid>

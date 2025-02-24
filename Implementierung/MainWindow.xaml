@@ -38,6 +38,9 @@
 
             <TextBlock Text="Trübung (NTU):" FontSize="16" Foreground="White" Margin="10,10,10,5"/>
             <TextBox x:Name="turbidityTextBox" FontSize="16" Height="35" Background="White" Foreground="Black" BorderBrush="#2D8CFF" BorderThickness="1"/>
+            <Button Content="Speichern" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White"
+             BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20"
+             Click="SaveButton_Click" Cursor="Hand"/>
 
             <!-- Button zum Anzeigen der Daten -->
             <Button Content="Daten anzeigen" HorizontalAlignment="Center" Margin="20,10" Background="#2D8CFF" Foreground="White" FontSize="16" Click="DisplayDataButton_Click"/>

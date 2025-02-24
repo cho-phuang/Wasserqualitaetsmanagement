@@ -14,6 +14,7 @@ namespace Projekt_Schuler
         public decimal? Turbidity { get; set; }
         public DateTime? EntryDate { get; set; }
 
+        public virtual Pool? Pool { get; set; }
         public virtual User? User { get; set; }
     }
 }
