@@ -43,11 +43,7 @@
                 <TextBlock Text="Standort" FontSize="14" Foreground="#666" Margin="20,10"/>
                 <TextBox x:Name="poolLocationTextBox" Width="280" Height="35" FontSize="16" Margin="0,5" Background="White" BorderBrush="#2D8CFF" BorderThickness="1"/>
 
-                <!-- Button zum Hinzufügen des Schwimmbads --><!--
-                <Button Content="Schwimmbad hinzufügen" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White"
-                    BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20"
-                    Click="AddPoolButton_Click" Cursor="Hand"/>-->
-
+            
             </StackPanel>
         </Border>
     </Grid>
