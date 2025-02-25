@@ -5,28 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Projekt_Schuler"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1031" Width="800"  
+        Title="MainWindow" Height="937" Width="1379"  
         WindowStartupLocation="CenterScreen"
         Background="#2A2A2A">
 
     <!-- Layout der Fensterinhalt -->
     <Grid>
 
-        <!-- StackPanel für die gesamte Struktur -->
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="562" Height="922">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="690*" />
+            <ColumnDefinition Width="370*" />
+            <ColumnDefinition Width="319*"/>
+        </Grid.ColumnDefinitions>
 
-            <!-- Logout-Button oben rechts -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="562" Height="901">
+
             <Button Content="Ausloggen" Width="100" Height="30" HorizontalAlignment="Right" Margin="10" 
                 Background="#FF3333" Foreground="White" FontSize="14" Click="LogoutButton_Click"/>
 
-            <!-- Titel der Anwendung -->
             <TextBlock Text="Wasserqualität Ihres Schwimmbades" FontSize="24" FontWeight="Bold" Foreground="#2D8CFF" HorizontalAlignment="Center" Margin="10"/>
+            <TextBlock Text="Wählen Sie ein Schwimmbad:" FontSize="16" Foreground="White" Margin="10,10,10,5"/>
+            <ComboBox x:Name="poolSelectionComboBox" FontSize="16" Height="35" Width="280" Background="White" Foreground="Black" BorderBrush="#2D8CFF" SelectionChanged="PoolSelectionComboBox_SelectionChanged"/>
 
-            <!-- Schwimmbadname und Standort -->
             <TextBlock x:Name="poolNameDisplay" FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="10"/>
             <TextBlock x:Name="poolLocationDisplay" FontSize="16" Foreground="White" HorizontalAlignment="Center" Margin="10"/>
 
-            <!-- Eingabefelder für Wasserqualitätsdaten -->
+            <TextBlock Text="Neues Schwimmbad hinzufügen" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10"/>
+
+            <TextBlock Text="Schwimmbadname:" FontSize="16" Foreground="White" Margin="10,10,10,5"/>
+            <TextBox x:Name="newPoolNameTextBox" FontSize="16" Height="35" Background="White" Foreground="Black" BorderBrush="#2D8CFF" BorderThickness="1"/>
+
+            <TextBlock Text="Standort:" FontSize="16" Foreground="White" Margin="10,10,10,5"/>
+            <TextBox x:Name="newPoolLocationTextBox" FontSize="16" Height="35" Background="White" Foreground="Black" BorderBrush="#2D8CFF" BorderThickness="1"/>
+
+            <Button Content="Schwimmbad hinzufügen" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White" BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20" Click="AddPoolButton_Click" Cursor="Hand"/>
+            <Button Content="Schwimmbad löschen" Width="280" Height="40" FontSize="16" Background="#FF4B4B" Foreground="White" BorderBrush="#FF4B4B" BorderThickness="1" Margin="0,20" Click="DeletePoolButton_Click" Cursor="Hand"/>
+
+
             <TextBlock Text="pH-Wert:" FontSize="16" Foreground="White" Margin="10,10,10,5"/>
             <TextBox x:Name="phValueTextBox" FontSize="16" Height="35" Background="White" Foreground="Black" BorderBrush="#2D8CFF" BorderThickness="1"/>
 
@@ -38,20 +53,20 @@
 
             <TextBlock Text="Trübung (NTU):" FontSize="16" Foreground="White" Margin="10,10,10,5"/>
             <TextBox x:Name="turbidityTextBox" FontSize="16" Height="35" Background="White" Foreground="Black" BorderBrush="#2D8CFF" BorderThickness="1"/>
-            <Button Content="Speichern" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White"
-             BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20"
-             Click="SaveButton_Click" Cursor="Hand"/>
 
-            <!-- Button zum Anzeigen der Daten -->
+            <Button Content="Speichern" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White" BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20" Click="SaveButton_Click" Cursor="Hand"/>
+
+        </StackPanel>
+
+        <!-- Rechte Spalte für die Anzeige der Daten -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Width="562" Height="901" Margin="73,0,0,0" Grid.Column="1" Grid.ColumnSpan="2">
+
             <Button Content="Daten anzeigen" HorizontalAlignment="Center" Margin="20,10" Background="#2D8CFF" Foreground="White" FontSize="16" Click="DisplayDataButton_Click"/>
 
-            <!-- Anzeige der eingegebenen Werte -->
             <TextBlock Text="Eingegebene Wasserqualität:" FontSize="16" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="10,20"/>
 
-      
-
             <TextBlock Text="pH-Wert: " FontSize="16" Foreground="White"/>
-            <TextBlock x:Name="phValueDisplay" FontSize="16" Foreground="White" />
+            <TextBlock x:Name="phValueDisplay" FontSize="16" Foreground="White"/>
 
             <TextBlock Text="Temperatur (°C): " FontSize="16" Foreground="White"/>
             <TextBlock x:Name="temperatureDisplay" FontSize="16" Foreground="White"/>
@@ -62,11 +77,9 @@
             <TextBlock Text="Trübung (NTU): " FontSize="16" Foreground="White"/>
             <TextBlock x:Name="turbidityDisplay" FontSize="16" Foreground="White"/>
 
-            <!-- Bereich für Warnmeldungen als mehrzeilige TextBox -->
-            <TextBox x:Name="warningText" FontSize="16" Foreground="Red" HorizontalAlignment="Center" Margin="20" 
-                 IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" Height="100" VerticalScrollBarVisibility="Auto" Width="512"/>
-        </StackPanel>
+            <TextBox x:Name="warningText" FontSize="16" Foreground="Red" HorizontalAlignment="Center" Margin="20" IsReadOnly="True" TextWrapping="Wrap" AcceptsReturn="True" Height="185" VerticalScrollBarVisibility="Auto" Width="512"/>
 
+        </StackPanel>
     </Grid>
 
 </Window>
