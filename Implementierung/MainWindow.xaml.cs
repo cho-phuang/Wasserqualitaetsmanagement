@@ -140,8 +140,25 @@ namespace Projekt_Schuler
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO Pools (PoolName, Location, UserID) VALUES (@poolName, @location, @userId)";
 
+                    // Überprüfen, ob das Schwimmbad bereits existiert
+                    string checkQuery = "SELECT COUNT(*) FROM Pools WHERE PoolName = @poolName AND Location = @location";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@poolName", newPoolName);
+                        checkCmd.Parameters.AddWithValue("@location", newPoolLocation);
+
+                        int existingCount = (int)checkCmd.ExecuteScalar();
+                        if (existingCount > 0)
+                        {
+                            MessageBox.Show("Dieses Schwimmbad existiert bereits mit dem gleichen Namen und Standort.",
+                                            "Duplikat gefunden", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                    }
+
+                    // Schwimmbad hinzufügen
+                    string query = "INSERT INTO Pools (PoolName, Location, UserID) VALUES (@poolName, @location, @userId)";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@poolName", newPoolName);
@@ -341,6 +358,7 @@ namespace Projekt_Schuler
         {
             SavePoolData();
         }
+        //Löschen von Schwimmbäder
         private void DeletePoolButton_Click(object sender, RoutedEventArgs e)
         {
             if (poolSelectionComboBox.SelectedItem is not ComboBoxItem selectedItem)
