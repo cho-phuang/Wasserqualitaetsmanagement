@@ -32,7 +32,10 @@
                 <Button Content="Anmelden" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White"
                     BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20"
                     Click="LoginButton_Click" Cursor="Hand"/>
-
+                <!-- Login-Button -->
+                <Button Content="Registrieren" Width="280" Height="40" FontSize="16" Background="#2D8CFF" Foreground="White"
+                 BorderBrush="#2D8CFF" BorderThickness="1" Margin="0,20"
+                 Click="Register_Click" Cursor="Hand"/>
                 <!-- Fehlernachricht -->
                 <TextBlock x:Name="loginErrorText" Foreground="Red" FontSize="14" HorizontalAlignment="Center"/>
 

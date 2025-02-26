@@ -181,8 +181,63 @@ namespace Projekt_Schuler
             }
         }
 
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            string username = usernameTextBox.Text.Trim();
+            string password = passwordBox.Password.Trim(); // In einer echten Anwendung sollte das Passwort gehasht werden
 
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!", "Fehlende Eingabe", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
+            using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-JJAKV1E;Initial Catalog=wasser;Integrated Security=SSPI"))
+            {
+                try
+                {
+                    conn.Open();
+
+                    // Überprüfen, ob der Benutzername bereits existiert
+                    string checkUserQuery = "SELECT COUNT(*) FROM Users WHERE Username = @username";
+                    using (SqlCommand checkCmd = new SqlCommand(checkUserQuery, conn))
+                    {
+                        checkCmd.Parameters.AddWithValue("@username", username);
+                        int userExists = (int)checkCmd.ExecuteScalar();
+
+                        if (userExists > 0)
+                        {
+                            MessageBox.Show("Dieser Benutzername ist bereits vergeben. Bitte wählen Sie einen anderen.", "Benutzername vergeben", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            return;
+                        }
+                    }
+
+                    // Benutzer registrieren
+                    string query = "INSERT INTO Users (Username, Password) VALUES (@username, @password)";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@username", username);
+                        cmd.Parameters.AddWithValue("@password", password); // In einer echten Anwendung: Gehashtes Passwort speichern
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Registrierung erfolgreich! Sie können sich nun einloggen.", "Erfolg", MessageBoxButton.OK, MessageBoxImage.Information);
+                            usernameTextBox.Clear();
+                            passwordBox.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Fehler bei der Registrierung: {ex.Message}", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
 
     }
 
