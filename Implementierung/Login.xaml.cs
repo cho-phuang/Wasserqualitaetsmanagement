@@ -74,6 +74,10 @@ namespace Projekt_Schuler
                         LastLogin DATETIME NULL
                     );
                 END
+                IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'Users' AND COLUMN_NAME = 'IsAdmin')
+                BEGIN
+                ALTER TABLE Users ADD IsAdmin BIT DEFAULT 0;
+                END
 
                 IF NOT EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Pools')
                 BEGIN
@@ -105,12 +109,13 @@ namespace Projekt_Schuler
 
                 IF NOT EXISTS (SELECT 1 FROM Users WHERE Username = 'admin')
                 BEGIN
-                    INSERT INTO Users (Username, Password, LastLogin) 
-                    VALUES 
-                        ('admin', 'hashedpassword123', NULL),
-                        ('user1', 'hashedpassword456', NULL),
-                        ('user2', 'hashedpassword789', NULL);
+                INSERT INTO Users (Username, Password, LastLogin, IsAdmin) 
+                VALUES 
+                ('admin', 'hashedpassword123', NULL, 1),  -- Admin mit IsAdmin = 1
+                ('user1', 'hashedpassword456', NULL, 0),
+                ('user2', 'hashedpassword789', NULL, 0);
                 END
+
 
                 IF NOT EXISTS (SELECT 1 FROM Pools WHERE PoolName = 'Stadtbad')
                 BEGIN
