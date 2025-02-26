@@ -20,7 +20,7 @@ namespace Projekt_Schuler
     /// </summary>
   public partial class Login : Window
 {
-        private string connectionString = "Server=DESKTOP-JJAKV1E;Database=master;Trusted_Connection=True;";
+        private string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=master;Trusted_Connection=True;";
      
 
         private static bool databaseInitialized = false; // Prüft, ob die DB schon initialisiert wurde
