@@ -47,6 +47,22 @@ namespace Projekt_Schuler
         {
             return this.userId;
         }
+        private bool IsAdminUser()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT IsAdmin FROM Users WHERE UserID = @userId";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@userId", userId);
+                    object result = cmd.ExecuteScalar();
+                    return result != null && Convert.ToBoolean(result);
+                }
+            }
+        }
+
 
         // Pools für den Benutzer laden
         private void LoadPools()
@@ -56,11 +72,29 @@ namespace Projekt_Schuler
                 try
                 {
                     conn.Open();
-                    string query = "SELECT PoolID, PoolName FROM Pools WHERE UserID = @userId";
+
+                    // Prüfen, ob der Benutzer ein Admin ist
+                    bool isAdmin = IsAdminUser();
+                    string query;
+
+                    if (isAdmin)
+                    {
+                        // Admin sieht alle Pools
+                        query = "SELECT PoolID, PoolName FROM Pools";
+                    }
+                    else
+                    {
+                        // Normale User sehen nur ihre eigenen Pools
+                        query = "SELECT PoolID, PoolName FROM Pools WHERE UserID = @userId";
+                    }
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@userId", userId);
+                        if (!isAdmin)
+                        {
+                            cmd.Parameters.AddWithValue("@userId", userId);
+                        }
+
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             poolSelectionComboBox.Items.Clear();
@@ -79,6 +113,7 @@ namespace Projekt_Schuler
                 }
             }
         }
+
 
         // Pool-Daten aus der Datenbank laden
         private void LoadPoolData(int poolId)
