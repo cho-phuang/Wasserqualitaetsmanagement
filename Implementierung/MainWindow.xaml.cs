@@ -22,7 +22,7 @@ namespace Projekt_Schuler
 
     public partial class MainWindow : Window
     {
-        private string connectionString = "Server=DESKTOP-JJAKV1E;Database=wasser;Trusted_Connection=True;";
+        private string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=wasser;Trusted_Connection=True;";
         private int userId;
 
         // Standardwerte für Wasserqualität
