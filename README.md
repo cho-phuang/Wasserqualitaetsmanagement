@@ -18,7 +18,7 @@ Optimale Wasserqualität im Schwimmbad sicherstellen! 💦
 How to use:
 Geben Sie einen Benutzernamen an, wenn Sie sich als neuer User anmelden möchten. Dazu Ihr gewünschtes Passwort in die Passwortleiste. Dann drücken Sie den Registrieren-Knopf.
 Danach wiederholen Sie den Vorgang mit Ihren Daten und drücken Sie auf den Anmelden-Knopf.
-https://imgur.com/a/ahPl1Bl
+![Screenshot]("https://imgur.com/a/ahPl1Bl")
 
 
 
