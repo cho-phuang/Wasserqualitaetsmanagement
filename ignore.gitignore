@@ -1,0 +1,22 @@
+# Build-Dateien
+Implementierung/bin/
+Implementierung/obj/
+*.exe
+*.dll
+*.pdb
+*.log
+
+# Paketabhängigkeiten
+Implementierung/packages/
+Implementierung/node_modules/
+
+# IDE spezifische Einstellungen
+Implementierung/.vscode/
+Implementierung/*.csproj.user
+Implementierung/*.vcxproj.user
+
+# macOS spezifische Dateien
+Implementierung/.DS_Store
+
+# Benutzerspezifische Projektdateien ignorieren
+Implementierung/Projekt Schuler.csproj.user
