@@ -20,7 +20,7 @@ namespace Projekt_Schuler
     /// </summary>
   public partial class Login : Window
 {
-        private string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=master;Trusted_Connection=True;";
+        private string connectionString = "Server=(LocalDb)\\MSSQLLocalDB;Database=master;Trusted_Connection=True;";
      
 
         private static bool databaseInitialized = false; // Prüft, ob die DB schon initialisiert wurde
@@ -157,7 +157,7 @@ namespace Projekt_Schuler
             string username = usernameTextBox.Text;
             string password = passwordBox.Password; // In einer echten Anwendung sollte hier eine Hash-Überprüfung erfolgen
 
-            using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-JJAKV1E;Initial Catalog=wasser;Integrated Security=SSPI"))
+            using (SqlConnection conn = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=wasser;Integrated Security=SSPI"))
             {
                 conn.Open();
                 string query = "SELECT UserID FROM Users WHERE Username = @username AND Password = @password";
@@ -197,7 +197,7 @@ namespace Projekt_Schuler
                 return;
             }
 
-            using (SqlConnection conn = new SqlConnection("Data Source=DESKTOP-JJAKV1E;Initial Catalog=wasser;Integrated Security=SSPI"))
+            using (SqlConnection conn = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=wasser;Integrated Security=SSPI"))
             {
                 try
                 {
